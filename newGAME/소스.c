@@ -48,3 +48,15 @@ int checkWin() {
     }
     return 0; // 승자가 없으면 0 리턴
 }
+// 무승부 조건을 검사하는 함수
+int checkDraw() {
+    // 빈 칸이 있으면 0을 리턴
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (board[i][j] != 'X' && board[i][j] != 'O') {
+                return 0; // 빈 칸이 있음
+            }
+        }
+    }
+    return 1; // 빈 칸이 없으면 무승부
+}
