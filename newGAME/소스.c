@@ -75,7 +75,7 @@ void makeMove(int choice) {
 }
 // 보드를 초기 상태로 리셋하는 함수
 void resetBoard() {
-    // 초기 상태로 보드 배열 복원
+   
     char tempBoard[3][3] = {
         {'1', '2', '3'},
         {'4', '5', '6'},
