@@ -99,3 +99,40 @@ int getAIChoice() {
     }
     return -1;  // 더 이상 선택할 곳이 없을 경우
 }
+// 게임을 진행하는 함수 (사람 vs 사람 또는 사람 vs AI)
+void playGame(int vsAI) {
+    int choice;
+    while (1) {
+        printBoard();  // 게임 보드 출력
+
+        // 사람 vs AI일 경우, AI는 'O'로 플레이
+        if (vsAI && currentPlayer == 'O') {
+            printf("AI의 차례입니다.\n");
+            choice = getAIChoice();  // AI 선택
+        }
+        else {
+            // 사람 플레이어의 차례
+            printf("플레이어 %c, 선택하세요 (1-9): ", currentPlayer);
+            scanf("%d", &choice);
+        }
+
+        makeMove(choice);  // 해당 선택에 따라 보드 업데이트
+
+        // 승리 조건 검사
+        if (checkWin()) {
+            printBoard();
+            printf("플레이어 %c 승리!\n", currentPlayer);
+            break;
+        }
+
+        // 무승부 조건 검사
+        if (checkDraw()) {
+            printBoard();
+            printf("무승부!\n");
+            break;
+        }
+
+        // 턴 변경: 'X'와 'O'가 번갈아가며 진행
+        currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+    }
+}
