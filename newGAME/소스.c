@@ -25,3 +25,16 @@ void printBoard() {
     }
     printf("\n");
 }
+// 승리 조건을 검사하는 함수
+int checkWin() {
+    // 가로, 세로, 대각선 검사
+    for (int i = 0; i < 3; i++) {
+        // 가로 체크
+        if (board[i][0] == board[i][1] && board[i][1] == board[i][2]) {
+            return 1;
+        }
+        // 세로 체크
+        if (board[0][i] == board[1][i] && board[1][i] == board[2][i]) {
+            return 1;
+        }
+    }
