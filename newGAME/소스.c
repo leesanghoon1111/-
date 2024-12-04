@@ -13,12 +13,14 @@ char currentPlayer = 'X';
 // 보드를 출력하는 함수
 void printBoard() {
     printf("\n");
+    // 3x3 보드를 출력합니다.
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             printf(" %c ", board[i][j]);
             if (j < 2) printf("|");
         }
-        printf("\n");       
+        printf("\n");
+        // 각 줄마다 구분선 추가
         if (i < 2) printf("---|---|---\n");
     }
     printf("\n");
