@@ -38,3 +38,13 @@ int checkWin() {
             return 1;
         }
     }
+
+    // 대각선 체크
+    if (board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
+        return 1;
+    }
+    if (board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
+        return 1;
+    }
+    return 0; // 승자가 없으면 0 리턴
+}
