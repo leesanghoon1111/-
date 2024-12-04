@@ -73,3 +73,17 @@ void makeMove(int choice) {
         printf("잘못된 입력! 이 칸은 이미 차 있습니다.\n");
     }
 }
+// 보드를 초기 상태로 리셋하는 함수
+void resetBoard() {
+    // 초기 상태로 보드 배열 복원
+    char tempBoard[3][3] = {
+        {'1', '2', '3'},
+        {'4', '5', '6'},
+        {'7', '8', '9'}
+    };
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            board[i][j] = tempBoard[i][j];
+        }
+    }
+}
