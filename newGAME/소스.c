@@ -60,3 +60,16 @@ int checkDraw() {
     }
     return 1; // 빈 칸이 없으면 무승부
 }
+// 사용자 입력에 따라 게임 보드를 업데이트하는 함수
+void makeMove(int choice) {
+    int row = (choice - 1) / 3;  // 행 번호 계산
+    int col = (choice - 1) % 3;  // 열 번호 계산
+
+    // 해당 칸이 빈 칸일 경우에만 선택
+    if (board[row][col] != 'X' && board[row][col] != 'O') {
+        board[row][col] = currentPlayer;
+    }
+    else {
+        printf("잘못된 입력! 이 칸은 이미 차 있습니다.\n");
+    }
+}
