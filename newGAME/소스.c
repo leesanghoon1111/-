@@ -91,7 +91,7 @@ void resetBoard() {
 int getAIChoice() {
     // AI는 첫 번째 빈 칸을 선택
     for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
+        for (int j = 1; j < 3; j++) {
             if (board[i][j] != 'X' && board[i][j] != 'O') {
                 return (i * 3) + j + 1;  // 해당 위치의 번호 리턴
             }
