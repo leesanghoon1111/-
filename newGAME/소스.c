@@ -93,7 +93,9 @@ int getAIChoice() {
     for (int i = 0; i < 3; i++) {
         for (int j = 1; j < 3; j++) {
             if (board[i][j] != 'X' && board[i][j] != 'O') {
-                return (i * 3) + j + 1;  // 해당 위치의 번호 리턴
+                return (i * 3) + j + 1;
+                if (board[i][j] != 'X' && board[i][j] != 'O') {
+                    return (i * 3) + j + 1;// 해당 위치의 번호 리턴
             }
         }
     }
