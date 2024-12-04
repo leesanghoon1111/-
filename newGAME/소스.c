@@ -113,7 +113,7 @@ void playGame(int vsAI) {
         else {
             // 사람 플레이어의 차례
             printf("플레이어 %c, 선택하세요 (1-9): ", currentPlayer);
-            scanf("%d", &choice);
+            scanf_s("%d", &choice);
         }
 
         makeMove(choice);  // 해당 선택에 따라 보드 업데이트
@@ -135,4 +135,44 @@ void playGame(int vsAI) {
         // 턴 변경: 'X'와 'O'가 번갈아가며 진행
         currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
     }
+}
+// 게임을 시작하는 함수
+int main() {
+    int choice;
+    char playAgain;
+
+    // 게임 초기화
+    srand(time(NULL));  // 랜덤 함수 초기화
+
+    do {
+        // 게임 모드 선택 (사람 vs 사람 또는 사람 vs AI)
+        printf("틱택토 게임\n");
+        printf("1. 사람 vs 사람\n");
+        printf("2. 사람 vs AI\n");
+        printf("선택: ");
+        scanf_s("%d", &choice);
+
+        if (choice == 1) {
+            playGame(0);  // 사람 대 사람
+        }
+        else if (choice == 2) {
+            playGame(1);  // 사람 대 AI
+        }
+        else {
+            printf("잘못된 선택입니다.\n");
+            continue;
+        }
+
+        // 게임 종료 후 재시작 여부 확인
+        printf("게임을 다시 하시겠습니까? (Y/N): ");
+        scanf_s(" %c", &playAgain);
+        if (playAgain == 'Y' || playAgain == 'y') {
+            resetBoard();  // 보드 초기화
+            currentPlayer = 'X';  // 'X'가 먼저 시작
+        }
+
+    } while (playAgain == 'Y' || playAgain == 'y');
+
+    printf("게임 종료!\n");
+    return 0;
 }
